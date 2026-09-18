@@ -98,7 +98,8 @@ def test_module_parameters():
 
     # % Check hydrological module rr parameters
     assert list(HYDROLOGICAL_MODULE_RR_PARAMETERS.values()) == (
-        [["ci", "cp", "ct", "kexc"]] * 2  # % gr4, gr4_mlp,
+        [["ci", "cp", "ct", "kexc", "kcb_full"]]  # % gr4
+        + [["ci", "cp", "ct", "kexc"]]  # % gr4_mlp
         + [["ci", "cp", "ct", "alpha1", "alpha2", "kexc"]] * 2  # % gr4_ri, gr4_ri_mlp_exc
         + [["ci", "cp", "ct", "kexc"]] * 2  # % gr4_ode, gr4_ude
         + [["ci", "cp", "ct", "kexc", "aexc"]] * 2  # % gr5, gr5_mlp
@@ -166,6 +167,7 @@ def test_parameters():
         "be",  # % gr6, gr6_mlp
         "kexc",  # % gr4, gr4_mlp, gr4_ri, gr4_ri_mlp_exc, gr4_ode, gr4_ude, gr5, gr5_mlp, gr6, gr6_mlp,
         # % grc, grc_mlp
+        "kcb_full",  # % gr4
         "aexc",  # % gr5, gr5_mlp, gr5_ri, gr5_ri_mlp_exc, gr6, gr6_mlp
         "ca",  # % loieau, loieau_mlp
         "cc",  # % loieau, loieau_mlp
@@ -292,6 +294,7 @@ def test_feasible_domain():
         (0, np.inf),  # % cl
         (0, np.inf),  # % be
         (-np.inf, np.inf),  # % kexc
+        (1e-3, 3),  # % kcb_full
         (0, 1),  # % aexc
         (0, np.inf),  # % ca
         (0, np.inf),  # % cc
@@ -353,6 +356,7 @@ def test_default_parameters():
         500,  # % cl
         10,  # % be
         0,  # % kexc
+        1.15,  # % kcb_full
         0.1,  # % aexc
         200,  # % ca
         500,  # % cc
@@ -414,6 +418,7 @@ def test_default_bounds_parameters():
         (1e-6, 1e3),  # % cl
         (1e-3, 20),  # % be
         (-50, 50),  # % kexc
+        (0.9, 1.3),  # % kcb_full
         (1e-6, 0.999999),  # % aexc
         (1e-6, 1e3),  # % ca
         (1e-6, 1e3),  # % cc
