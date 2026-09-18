@@ -375,7 +375,7 @@ contains
     end subroutine gr_production_transfer_ude
 
     subroutine gr4_time_step(setup, mesh, input_data, options, returns, time_step, ac_mlt, ac_ci, ac_cp, ac_ct, &
-    & ac_kexc, ac_hi, ac_hp, ac_ht, ac_qt)
+    & ac_kexc, ac_kcb_full, ac_hi, ac_hp, ac_ht, ac_qt)
 
         implicit none
 
@@ -386,24 +386,40 @@ contains
         type(ReturnsDT), intent(inout) :: returns
         integer, intent(in) :: time_step
         real(sp), dimension(mesh%nac), intent(in) :: ac_mlt
-        real(sp), dimension(mesh%nac), intent(in) :: ac_ci, ac_cp, ac_ct, ac_kexc
+        real(sp), dimension(mesh%nac), intent(in) :: ac_ci, ac_cp, ac_ct, ac_kexc, ac_kcb_full
         real(sp), dimension(mesh%nac), intent(inout) :: ac_hi, ac_hp, ac_ht
         real(sp), dimension(mesh%nac), intent(inout) :: ac_qt
 
-        real(sp), dimension(mesh%nac) :: ac_prcp, ac_pet
+        real(sp), dimension(mesh%nac) :: ac_prcp, ac_pet, ac_lai, ac_kcb, ac_etc
         integer :: row, col, k, time_step_returns
         real(sp) :: beta, pn, en, imperviousness, pr, perc, ps, es, l, prr, prd, qr, qd
+        real(sp), parameter :: kc_min = 0.15_sp
 
         call get_ac_atmos_data_time_step(setup, mesh, input_data, time_step, "prcp", ac_prcp)
         call get_ac_atmos_data_time_step(setup, mesh, input_data, time_step, "pet", ac_pet)
+        call get_ac_atmos_data_time_step(setup, mesh, input_data, time_step, "lai", ac_lai)
 
         ac_prcp = ac_prcp + ac_mlt
+
+        ! FAO-56 basal crop coefficient interpolated between bare soil and full cover
+        ! and applied to the potential evapotranspiration to get the crop evapotranspiration.
+        ! Where lai is missing for this time step, fall back to kcb = 1 (etc = pet) instead of
+        ! letting the missing-data sentinel (-99) blow up through the exponential. At a daily time
+        ! step (one lai map per day = one map per time step) this fallback is expected to be rare.
+        ! TODO: forward-fill lai if this operator is ever used at an infra-daily time step, where
+        ! most time steps would otherwise fall back to kcb = 1 between two daily lai maps.
+        where (ac_lai .ge. 0._sp)
+            ac_kcb = kc_min + (ac_kcb_full - kc_min)*(1._sp - exp(-0.7_sp*ac_lai))
+        elsewhere
+            ac_kcb = 1._sp
+        end where
+        ac_etc = ac_kcb*ac_pet
 
         ! Beta percolation parameter is time step dependent
         beta = (9._sp/4._sp)*(86400._sp/setup%dt)**0.25_sp
 #ifdef _OPENMP
         !$OMP parallel do schedule(static) num_threads(options%comm%ncpu) &
-        !$OMP& shared(setup, mesh, returns, ac_prcp, ac_pet, ac_ci, ac_cp, beta, ac_ct, ac_kexc, &
+        !$OMP& shared(setup, mesh, returns, ac_prcp, ac_pet, ac_etc, ac_ci, ac_cp, beta, ac_ct, ac_kexc, &
         !$OMP& ac_hi, ac_hp, ac_ht, ac_qt) &
         !$OMP& private(row, col, k, time_step_returns, pn, en, imperviousness, pr, perc, ps, es, l, prr, prd, qr, qd)
 #endif
@@ -418,7 +434,7 @@ contains
 
                 if (ac_prcp(k) .ge. 0._sp .and. ac_pet(k) .ge. 0._sp) then
 
-                    call gr_interception(ac_prcp(k), ac_pet(k), ac_ci(k), &
+                    call gr_interception(ac_prcp(k), ac_etc(k), ac_ci(k), &
                     & ac_hi(k), pn, en)
 
                     call gr_production(0._sp, 0._sp, pn, en, imperviousness, ac_cp(k), beta, ac_hp(k), pr, perc, ps, es)

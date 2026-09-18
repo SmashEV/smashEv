@@ -190,6 +190,7 @@ contains
                     checkpoint_variable%ac_rr_parameters(:, rr_parameters_inc + 2), & ! % cp
                     checkpoint_variable%ac_rr_parameters(:, rr_parameters_inc + 3), & ! % ct
                     checkpoint_variable%ac_rr_parameters(:, rr_parameters_inc + 4), & ! % kexc
+                    checkpoint_variable%ac_rr_parameters(:, rr_parameters_inc + 5), & ! % kcb_full
                     h1, & ! % hi
                     h2, & ! % hp
                     h3, & ! % ht
@@ -199,7 +200,7 @@ contains
                 checkpoint_variable%ac_rr_states(:, rr_states_inc + 2) = h2
                 checkpoint_variable%ac_rr_states(:, rr_states_inc + 3) = h3
 
-                rr_parameters_inc = rr_parameters_inc + 4
+                rr_parameters_inc = rr_parameters_inc + 5
                 rr_states_inc = rr_states_inc + 3
 
                 ! 'gr4_mlp' module
