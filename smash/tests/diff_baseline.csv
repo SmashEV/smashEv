@@ -1,76 +1,92 @@
-commit 68235982518d502d3536219d1398d801523e5e90
-Author: Francois Colleoni <colleoni.francois@gmail.com>
-Date:   Wed Sep 2 14:58:14 2026 +0200
+commit 4d778c1df56e7119ffdb52bfaa496a083a131940
+Author: Francois Colleoni <110899888+inoelloc@users.noreply.github.com>
+Date:   Fri Sep 4 15:47:35 2026 +0200
 
-    ENH: Update backward run documentation
+    ENH: add backward run (#541)
+    
+    * ENH: Add backward run method
+    
+    * ENH: Minor change backward run documentation
+    
+    * Correction of unbounded pyret un backward_run and adjoint segfault
+    
+    * Correct again adjoint segfault
+    
+    * ENH: Update backward run documentation
+    
+    * ENH: Correct backward run documentation and add unit tests
+    
+    * ENH: Lower backward run test tolerance
+    
+    * ENH: Still lower tolerance
 
 TEST NAME                                                   |STATUS
-backward_run.zero-gr4-kw.cost                               |ADDED
-backward_run.zero-gr4-kw.grad_j                             |ADDED
-backward_run.zero-gr4-kw.grad_q                             |ADDED
-backward_run.zero-gr4-lag0.cost                             |ADDED
-backward_run.zero-gr4-lag0.grad_j                           |ADDED
-backward_run.zero-gr4-lag0.grad_q                           |ADDED
-backward_run.zero-gr4-lr.cost                               |ADDED
-backward_run.zero-gr4-lr.grad_j                             |ADDED
-backward_run.zero-gr4-lr.grad_q                             |ADDED
-backward_run.zero-gr4-zero.cost                             |ADDED
-backward_run.zero-gr4-zero.grad_j                           |ADDED
-backward_run.zero-gr4-zero.grad_q                           |ADDED
-backward_run.zero-gr4_mlp-lr.cost                           |ADDED
-backward_run.zero-gr4_mlp-lr.grad_j                         |ADDED
-backward_run.zero-gr4_mlp-lr.grad_q                         |ADDED
-backward_run.zero-gr4_ode-lr.cost                           |ADDED
-backward_run.zero-gr4_ode-lr.grad_j                         |ADDED
-backward_run.zero-gr4_ode-lr.grad_q                         |ADDED
-backward_run.zero-gr4_ri-lr.cost                            |ADDED
-backward_run.zero-gr4_ri-lr.grad_j                          |ADDED
-backward_run.zero-gr4_ri-lr.grad_q                          |ADDED
-backward_run.zero-gr4_ri_mlp_exc-lr.cost                    |ADDED
-backward_run.zero-gr4_ri_mlp_exc-lr.grad_j                  |ADDED
-backward_run.zero-gr4_ri_mlp_exc-lr.grad_q                  |ADDED
-backward_run.zero-gr4_ude-lr.cost                           |ADDED
-backward_run.zero-gr4_ude-lr.grad_j                         |ADDED
-backward_run.zero-gr4_ude-lr.grad_q                         |ADDED
-backward_run.zero-gr5-lr.cost                               |ADDED
-backward_run.zero-gr5-lr.grad_j                             |ADDED
-backward_run.zero-gr5-lr.grad_q                             |ADDED
-backward_run.zero-gr5_mlp-lr.cost                           |ADDED
-backward_run.zero-gr5_mlp-lr.grad_j                         |ADDED
-backward_run.zero-gr5_mlp-lr.grad_q                         |ADDED
-backward_run.zero-gr5_ri-lr.cost                            |ADDED
-backward_run.zero-gr5_ri-lr.grad_j                          |ADDED
-backward_run.zero-gr5_ri-lr.grad_q                          |ADDED
-backward_run.zero-gr5_ri_mlp_exc-lr.cost                    |ADDED
-backward_run.zero-gr5_ri_mlp_exc-lr.grad_j                  |ADDED
-backward_run.zero-gr5_ri_mlp_exc-lr.grad_q                  |ADDED
-backward_run.zero-gr6-lr.cost                               |ADDED
-backward_run.zero-gr6-lr.grad_j                             |ADDED
-backward_run.zero-gr6-lr.grad_q                             |ADDED
-backward_run.zero-gr6_mlp-lr.cost                           |ADDED
-backward_run.zero-gr6_mlp-lr.grad_j                         |ADDED
-backward_run.zero-gr6_mlp-lr.grad_q                         |ADDED
-backward_run.zero-grc-lr.cost                               |ADDED
-backward_run.zero-grc-lr.grad_j                             |ADDED
-backward_run.zero-grc-lr.grad_q                             |ADDED
-backward_run.zero-grc_mlp-lr.cost                           |ADDED
-backward_run.zero-grc_mlp-lr.grad_j                         |ADDED
-backward_run.zero-grc_mlp-lr.grad_q                         |ADDED
-backward_run.zero-grd-lr.cost                               |ADDED
-backward_run.zero-grd-lr.grad_j                             |ADDED
-backward_run.zero-grd-lr.grad_q                             |ADDED
-backward_run.zero-grd_mlp-lr.cost                           |ADDED
-backward_run.zero-grd_mlp-lr.grad_j                         |ADDED
-backward_run.zero-grd_mlp-lr.grad_q                         |ADDED
-backward_run.zero-loieau-lr.cost                            |ADDED
-backward_run.zero-loieau-lr.grad_j                          |ADDED
-backward_run.zero-loieau-lr.grad_q                          |ADDED
-backward_run.zero-loieau_mlp-lr.cost                        |ADDED
-backward_run.zero-loieau_mlp-lr.grad_j                      |ADDED
-backward_run.zero-loieau_mlp-lr.grad_q                      |ADDED
-backward_run.zero-vic3l-lr.cost                             |ADDED
-backward_run.zero-vic3l-lr.grad_j                           |ADDED
-backward_run.zero-vic3l-lr.grad_q                           |ADDED
+backward_run.zero-gr4-kw.cost                               |NON MODIFIED
+backward_run.zero-gr4-kw.grad_j                             |MODIFIED
+backward_run.zero-gr4-kw.grad_q                             |MODIFIED
+backward_run.zero-gr4-lag0.cost                             |NON MODIFIED
+backward_run.zero-gr4-lag0.grad_j                           |MODIFIED
+backward_run.zero-gr4-lag0.grad_q                           |MODIFIED
+backward_run.zero-gr4-lr.cost                               |NON MODIFIED
+backward_run.zero-gr4-lr.grad_j                             |MODIFIED
+backward_run.zero-gr4-lr.grad_q                             |MODIFIED
+backward_run.zero-gr4-zero.cost                             |NON MODIFIED
+backward_run.zero-gr4-zero.grad_j                           |MODIFIED
+backward_run.zero-gr4-zero.grad_q                           |MODIFIED
+backward_run.zero-gr4_mlp-lr.cost                           |NON MODIFIED
+backward_run.zero-gr4_mlp-lr.grad_j                         |NON MODIFIED
+backward_run.zero-gr4_mlp-lr.grad_q                         |NON MODIFIED
+backward_run.zero-gr4_ode-lr.cost                           |NON MODIFIED
+backward_run.zero-gr4_ode-lr.grad_j                         |NON MODIFIED
+backward_run.zero-gr4_ode-lr.grad_q                         |NON MODIFIED
+backward_run.zero-gr4_ri-lr.cost                            |NON MODIFIED
+backward_run.zero-gr4_ri-lr.grad_j                          |NON MODIFIED
+backward_run.zero-gr4_ri-lr.grad_q                          |NON MODIFIED
+backward_run.zero-gr4_ri_mlp_exc-lr.cost                    |NON MODIFIED
+backward_run.zero-gr4_ri_mlp_exc-lr.grad_j                  |NON MODIFIED
+backward_run.zero-gr4_ri_mlp_exc-lr.grad_q                  |NON MODIFIED
+backward_run.zero-gr4_ude-lr.cost                           |NON MODIFIED
+backward_run.zero-gr4_ude-lr.grad_j                         |NON MODIFIED
+backward_run.zero-gr4_ude-lr.grad_q                         |NON MODIFIED
+backward_run.zero-gr5-lr.cost                               |NON MODIFIED
+backward_run.zero-gr5-lr.grad_j                             |NON MODIFIED
+backward_run.zero-gr5-lr.grad_q                             |NON MODIFIED
+backward_run.zero-gr5_mlp-lr.cost                           |NON MODIFIED
+backward_run.zero-gr5_mlp-lr.grad_j                         |NON MODIFIED
+backward_run.zero-gr5_mlp-lr.grad_q                         |NON MODIFIED
+backward_run.zero-gr5_ri-lr.cost                            |NON MODIFIED
+backward_run.zero-gr5_ri-lr.grad_j                          |NON MODIFIED
+backward_run.zero-gr5_ri-lr.grad_q                          |NON MODIFIED
+backward_run.zero-gr5_ri_mlp_exc-lr.cost                    |NON MODIFIED
+backward_run.zero-gr5_ri_mlp_exc-lr.grad_j                  |NON MODIFIED
+backward_run.zero-gr5_ri_mlp_exc-lr.grad_q                  |NON MODIFIED
+backward_run.zero-gr6-lr.cost                               |NON MODIFIED
+backward_run.zero-gr6-lr.grad_j                             |NON MODIFIED
+backward_run.zero-gr6-lr.grad_q                             |NON MODIFIED
+backward_run.zero-gr6_mlp-lr.cost                           |NON MODIFIED
+backward_run.zero-gr6_mlp-lr.grad_j                         |NON MODIFIED
+backward_run.zero-gr6_mlp-lr.grad_q                         |MODIFIED
+backward_run.zero-grc-lr.cost                               |NON MODIFIED
+backward_run.zero-grc-lr.grad_j                             |NON MODIFIED
+backward_run.zero-grc-lr.grad_q                             |NON MODIFIED
+backward_run.zero-grc_mlp-lr.cost                           |NON MODIFIED
+backward_run.zero-grc_mlp-lr.grad_j                         |NON MODIFIED
+backward_run.zero-grc_mlp-lr.grad_q                         |NON MODIFIED
+backward_run.zero-grd-lr.cost                               |NON MODIFIED
+backward_run.zero-grd-lr.grad_j                             |NON MODIFIED
+backward_run.zero-grd-lr.grad_q                             |NON MODIFIED
+backward_run.zero-grd_mlp-lr.cost                           |NON MODIFIED
+backward_run.zero-grd_mlp-lr.grad_j                         |NON MODIFIED
+backward_run.zero-grd_mlp-lr.grad_q                         |NON MODIFIED
+backward_run.zero-loieau-lr.cost                            |NON MODIFIED
+backward_run.zero-loieau-lr.grad_j                          |NON MODIFIED
+backward_run.zero-loieau-lr.grad_q                          |NON MODIFIED
+backward_run.zero-loieau_mlp-lr.cost                        |NON MODIFIED
+backward_run.zero-loieau_mlp-lr.grad_j                      |NON MODIFIED
+backward_run.zero-loieau_mlp-lr.grad_q                      |NON MODIFIED
+backward_run.zero-vic3l-lr.cost                             |NON MODIFIED
+backward_run.zero-vic3l-lr.grad_j                           |NON MODIFIED
+backward_run.zero-vic3l-lr.grad_q                           |NON MODIFIED
 bbox_mesh.active_cell                                       |NON MODIFIED
 bbox_mesh.cpar_to_rowcol                                    |NON MODIFIED
 bbox_mesh.cscpar                                            |NON MODIFIED
@@ -90,30 +106,30 @@ bbox_mesh.xmin                                              |NON MODIFIED
 bbox_mesh.xres                                              |NON MODIFIED
 bbox_mesh.ymax                                              |NON MODIFIED
 bbox_mesh.yres                                              |NON MODIFIED
-custom_bayesian_optimize.zero-gr4-lr.custom_set_1.sim_q     |NON MODIFIED
+custom_bayesian_optimize.zero-gr4-lr.custom_set_1.sim_q     |MODIFIED
 custom_bayesian_optimize.zero-gr4-lr.custom_set_2.sim_q     |NON MODIFIED
-custom_bayesian_optimize.zero-gr4-lr.custom_set_3.sim_q     |NON MODIFIED
+custom_bayesian_optimize.zero-gr4-lr.custom_set_3.sim_q     |MODIFIED
 custom_bayesian_optimize.zero-gr4-lr.custom_set_4.sim_q     |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_1.iter_control       |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_1.iter_cost          |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_1.iter_projg         |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_1.sim_q              |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_10.iter_control      |NON MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_10.iter_control      |MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_10.iter_cost         |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_10.iter_projg        |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_10.sim_q             |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_11.iter_control      |NON MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_11.iter_control      |MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_11.iter_cost         |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_11.iter_projg        |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_11.sim_q             |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_12.iter_control      |NON MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_12.iter_control      |MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_12.iter_cost         |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_12.iter_projg        |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_12.sim_q             |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_13.iter_control      |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_13.iter_cost         |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_13.iter_projg        |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_13.sim_q             |NON MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_13.iter_control      |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_13.iter_cost         |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_13.iter_projg        |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_13.sim_q             |MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_2.iter_control       |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_2.iter_cost          |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_2.sim_q              |NON MODIFIED
@@ -125,21 +141,21 @@ custom_optimize.zero-gr4-lr.custom_set_4.iter_control       |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_4.iter_cost          |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_4.iter_projg         |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_4.sim_q              |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_5.iter_control       |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_5.iter_cost          |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_5.sim_q              |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_6.iter_control       |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_6.iter_cost          |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_6.sim_q              |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_7.iter_control       |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_7.iter_cost          |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_7.sim_q              |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_8.iter_control       |NON MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_5.iter_control       |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_5.iter_cost          |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_5.sim_q              |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_6.iter_control       |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_6.iter_cost          |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_6.sim_q              |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_7.iter_control       |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_7.iter_cost          |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_7.sim_q              |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_8.iter_control       |MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_8.iter_cost          |NON MODIFIED
 custom_optimize.zero-gr4-lr.custom_set_8.sim_q              |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_9.iter_control       |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_9.iter_cost          |NON MODIFIED
-custom_optimize.zero-gr4-lr.custom_set_9.sim_q              |NON MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_9.iter_control       |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_9.iter_cost          |MODIFIED
+custom_optimize.zero-gr4-lr.custom_set_9.sim_q              |MODIFIED
 evaluation.kge                                              |NON MODIFIED
 evaluation.lgrm                                             |NON MODIFIED
 evaluation.mae                                              |NON MODIFIED
@@ -640,7 +656,7 @@ model_ddt_io.rr_final_states.values                         |NON MODIFIED
 model_ddt_io.rr_initial_states.keys                         |NON MODIFIED
 model_ddt_io.rr_initial_states.values                       |NON MODIFIED
 model_ddt_io.rr_parameters.keys                             |NON MODIFIED
-model_ddt_io.rr_parameters.values                           |NON MODIFIED
+model_ddt_io.rr_parameters.values                           |MODIFIED
 model_ddt_io.serr_mu_parameters.keys                        |NON MODIFIED
 model_ddt_io.serr_mu_parameters.values                      |NON MODIFIED
 model_ddt_io.serr_sigma_parameters.keys                     |NON MODIFIED
@@ -664,7 +680,7 @@ model_io.response.q                                         |NON MODIFIED
 model_io.response_data.q                                    |NON MODIFIED
 model_io.rr_final_states.values                             |NON MODIFIED
 model_io.rr_initial_states.values                           |NON MODIFIED
-model_io.rr_parameters.values                               |NON MODIFIED
+model_io.rr_parameters.values                               |MODIFIED
 model_io.setup.end_time                                     |NON MODIFIED
 model_io.setup.start_time                                   |NON MODIFIED
 model_io.setup.structure                                    |NON MODIFIED
@@ -688,46 +704,46 @@ net_init.weight_layer_1                                     |NON MODIFIED
 net_init.weight_layer_2                                     |NON MODIFIED
 net_init.weight_layer_3                                     |NON MODIFIED
 net_init.weight_layer_4                                     |NON MODIFIED
-optimize.zero-gr4-kw.ann.control_vector                     |NON MODIFIED
-optimize.zero-gr4-kw.ann.sim_q                              |NON MODIFIED
-optimize.zero-gr4-kw.distributed.control_vector             |NON MODIFIED
+optimize.zero-gr4-kw.ann.control_vector                     |MODIFIED
+optimize.zero-gr4-kw.ann.sim_q                              |MODIFIED
+optimize.zero-gr4-kw.distributed.control_vector             |MODIFIED
 optimize.zero-gr4-kw.distributed.sim_q                      |NON MODIFIED
-optimize.zero-gr4-kw.multi-linear.control_vector            |NON MODIFIED
+optimize.zero-gr4-kw.multi-linear.control_vector            |MODIFIED
 optimize.zero-gr4-kw.multi-linear.sim_q                     |NON MODIFIED
-optimize.zero-gr4-kw.multi-power.control_vector             |NON MODIFIED
+optimize.zero-gr4-kw.multi-power.control_vector             |MODIFIED
 optimize.zero-gr4-kw.multi-power.sim_q                      |NON MODIFIED
-optimize.zero-gr4-kw.uniform.control_vector                 |NON MODIFIED
-optimize.zero-gr4-kw.uniform.sim_q                          |NON MODIFIED
-optimize.zero-gr4-lag0.ann.control_vector                   |NON MODIFIED
-optimize.zero-gr4-lag0.ann.sim_q                            |NON MODIFIED
-optimize.zero-gr4-lag0.distributed.control_vector           |NON MODIFIED
+optimize.zero-gr4-kw.uniform.control_vector                 |MODIFIED
+optimize.zero-gr4-kw.uniform.sim_q                          |MODIFIED
+optimize.zero-gr4-lag0.ann.control_vector                   |MODIFIED
+optimize.zero-gr4-lag0.ann.sim_q                            |MODIFIED
+optimize.zero-gr4-lag0.distributed.control_vector           |MODIFIED
 optimize.zero-gr4-lag0.distributed.sim_q                    |NON MODIFIED
-optimize.zero-gr4-lag0.multi-linear.control_vector          |NON MODIFIED
+optimize.zero-gr4-lag0.multi-linear.control_vector          |MODIFIED
 optimize.zero-gr4-lag0.multi-linear.sim_q                   |NON MODIFIED
-optimize.zero-gr4-lag0.multi-power.control_vector           |NON MODIFIED
+optimize.zero-gr4-lag0.multi-power.control_vector           |MODIFIED
 optimize.zero-gr4-lag0.multi-power.sim_q                    |NON MODIFIED
-optimize.zero-gr4-lag0.uniform.control_vector               |NON MODIFIED
+optimize.zero-gr4-lag0.uniform.control_vector               |MODIFIED
 optimize.zero-gr4-lag0.uniform.sim_q                        |NON MODIFIED
-optimize.zero-gr4-lr.ann.control_vector                     |NON MODIFIED
-optimize.zero-gr4-lr.ann.sim_q                              |NON MODIFIED
-optimize.zero-gr4-lr.distributed.control_vector             |NON MODIFIED
+optimize.zero-gr4-lr.ann.control_vector                     |MODIFIED
+optimize.zero-gr4-lr.ann.sim_q                              |MODIFIED
+optimize.zero-gr4-lr.distributed.control_vector             |MODIFIED
 optimize.zero-gr4-lr.distributed.sim_q                      |NON MODIFIED
-optimize.zero-gr4-lr.multi-linear.control_vector            |NON MODIFIED
+optimize.zero-gr4-lr.multi-linear.control_vector            |MODIFIED
 optimize.zero-gr4-lr.multi-linear.sim_q                     |NON MODIFIED
-optimize.zero-gr4-lr.multi-power.control_vector             |NON MODIFIED
+optimize.zero-gr4-lr.multi-power.control_vector             |MODIFIED
 optimize.zero-gr4-lr.multi-power.sim_q                      |NON MODIFIED
-optimize.zero-gr4-lr.uniform.control_vector                 |NON MODIFIED
-optimize.zero-gr4-lr.uniform.sim_q                          |NON MODIFIED
-optimize.zero-gr4-zero.ann.control_vector                   |NON MODIFIED
-optimize.zero-gr4-zero.ann.sim_q                            |NON MODIFIED
-optimize.zero-gr4-zero.distributed.control_vector           |NON MODIFIED
+optimize.zero-gr4-lr.uniform.control_vector                 |MODIFIED
+optimize.zero-gr4-lr.uniform.sim_q                          |MODIFIED
+optimize.zero-gr4-zero.ann.control_vector                   |MODIFIED
+optimize.zero-gr4-zero.ann.sim_q                            |MODIFIED
+optimize.zero-gr4-zero.distributed.control_vector           |MODIFIED
 optimize.zero-gr4-zero.distributed.sim_q                    |NON MODIFIED
-optimize.zero-gr4-zero.multi-linear.control_vector          |NON MODIFIED
+optimize.zero-gr4-zero.multi-linear.control_vector          |MODIFIED
 optimize.zero-gr4-zero.multi-linear.sim_q                   |NON MODIFIED
-optimize.zero-gr4-zero.multi-power.control_vector           |NON MODIFIED
+optimize.zero-gr4-zero.multi-power.control_vector           |MODIFIED
 optimize.zero-gr4-zero.multi-power.sim_q                    |NON MODIFIED
-optimize.zero-gr4-zero.uniform.control_vector               |NON MODIFIED
-optimize.zero-gr4-zero.uniform.sim_q                        |NON MODIFIED
+optimize.zero-gr4-zero.uniform.control_vector               |MODIFIED
+optimize.zero-gr4-zero.uniform.sim_q                        |MODIFIED
 optimize.zero-gr4_mlp-lr.ann.control_vector                 |NON MODIFIED
 optimize.zero-gr4_mlp-lr.ann.sim_q                          |NON MODIFIED
 optimize.zero-gr4_mlp-lr.distributed.control_vector         |NON MODIFIED
@@ -821,7 +837,7 @@ optimize.zero-gr5_ri_mlp_exc-lr.uniform.sim_q               |NON MODIFIED
 optimize.zero-gr6-lr.ann.control_vector                     |NON MODIFIED
 optimize.zero-gr6-lr.ann.sim_q                              |NON MODIFIED
 optimize.zero-gr6-lr.distributed.control_vector             |NON MODIFIED
-optimize.zero-gr6-lr.distributed.sim_q                      |NON MODIFIED
+optimize.zero-gr6-lr.distributed.sim_q                      |MODIFIED
 optimize.zero-gr6-lr.multi-linear.control_vector            |NON MODIFIED
 optimize.zero-gr6-lr.multi-linear.sim_q                     |NON MODIFIED
 optimize.zero-gr6-lr.multi-power.control_vector             |NON MODIFIED
